@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="HW1">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="index.css">
+
+    <script src="angular.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+
+    <title>HW1</title>
+</head>
+
+<body ng-controller="HW1Controller as hwCtrl" ng-class="hwCtrl.colorThemeChoice.body">
+
+<div>
+    <h1>NYCDA HW 1</h1>
+
+    <div>
+        <h2>Part 1 - Choose A Color!</h2>
+
+        <div ng-repeat="colorOpt in hwCtrl.colorOptions">
+
+            <input type="radio" name="colorOption" ng-model="hwCtrl.colorThemeChoice" ng-value="colorOpt.colorClasses">
+            <span ng-bind="::colorOpt.name"></span>
+
+        </div>
+
+    </div>
+
+    <div class="borders" ng-class="hwCtrl.colorThemeChoice.s1">
+        <h3>First Section</h3>
+
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+            laborum."
+        </p>
+    </div>
+
+    <div class="borders" ng-class="hwCtrl.colorThemeChoice.s2">
+        <h3>Second Section</h3>
+
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+            laborum."
+        </p>
+    </div>
+</div>
+
+<div class="folderCtrl" ng-controller="folderController as fldCtrl">
+    <h2>Part 2 - Folders</h2>
+
+    <div>
+        <input type="checkbox" ng-model="fldCtrl.showFolders" ng-change="fldCtrl.toggleFolders(fldCtrl.showFolders)"><span>Show All Folders</span>
+    </div>
+
+    <div class="float-left">
+
+        <h3>My Folders</h3>
+
+        <div>
+
+            <div>
+                <ul>
+                    <li ng-repeat="folder in fldCtrl.folders">
+                        <input type="checkbox" ng-model="folder.expanded">
+                        <label ng-bind="folder.folderName"></label>
+
+                        <ul ng-show="folder.expanded">
+                            <li ng-repeat="filename in folder.fileNames">
+                                <label ng-bind="filename"></label>
+                            </li>
+                        </ul>
+
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="float-right">
+        <h3>Add Files</h3>
+
+        <div>
+            <div ng-repeat="folder in fldCtrl.folders">
+                <input type="radio" name="folderSelector" ng-value="folder.folderName" ng-model="fldCtrl.folderChoice">
+                <label ng-bind="folder.folderName"></label>
+            </div>
+        </div>
+
+        <div>
+            <label>File Name: </label><input type="text" ng-model="fldCtrl.inputFileName" ng-keyup="fldCtrl.addFilesKeyUp($event)">
+            <button ng-click="fldCtrl.saveFileName(fldCtrl.folderChoice, fldCtrl.inputFileName)">Save</button>
+        </div>
+
+        <!--<span ng-bind="fldCtrl.folderChoice"></span>-->
+
+    </div>
+
+</div>
+
+</body>
+</html>

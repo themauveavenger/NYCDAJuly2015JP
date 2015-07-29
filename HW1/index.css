@@ -1,0 +1,97 @@
+body {
+    box-sizing: border-box;
+    width: auto;
+    padding: 20px;
+    font: 1em "Open Sans", sans-serif;
+    /*border: 1px solid #DDD;    */
+}
+
+.borders{
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* Default */
+.bodyDefault {}
+.s1Default {}
+.s2Default {}
+
+/* Red */
+.bodyRed {
+    background: #AA3939;
+}
+
+.s1Red {
+    background: #801515;
+}
+
+.s2Red{
+    background: #D46A6A;
+}
+
+/* Green */
+.bodyGreen {
+    background: #4BCE22;
+}
+.s1Green {
+    background: #30AD09; 
+}
+.s2Green {
+    background: #6ADA46;
+}
+
+/* Blue */
+.bodyBlue {
+    background: #343477;
+    color: whitesmoke;
+}
+
+.s1Blue {
+    background: #1A1A59;
+    color: whitesmoke;
+}
+.s2Blue {
+    background: #565695;
+    color: whitesmoke;
+}
+
+/* Yellow */
+.bodyYellow {
+    background: #F3F329;
+}
+.s1Yellow{
+    background: #CCCC0A;
+}
+.s2Yellow{
+    background: #FFFF52;
+}
+
+/* Dark */
+.bodyDark {
+    background: #2A2E29;
+    color: whitesmoke;
+}
+.s1Dark {
+    background: #131911;
+    color: whitesmoke;
+}
+.s2Dark {
+    background: #586056;
+    color: whitesmoke;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
+
+.folderCtrl {
+    width: 600px;
+    align-content: center;
+}
