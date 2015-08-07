@@ -95,3 +95,15 @@ body {
     width: 600px;
     align-content: center;
 }
+
+.container {
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+}
+
+.child {
+    width: 300px;
+    padding: 5px;
+    text-align: left;
+}

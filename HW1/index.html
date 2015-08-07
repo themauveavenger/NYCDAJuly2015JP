@@ -51,59 +51,61 @@
     </div>
 </div>
 
-<div class="folderCtrl" ng-controller="folderController as fldCtrl">
-    <h2>Part 2 - Folders</h2>
-
+<h2>Part 2 - Folders</h2>
+<div ng-controller="folderController as fldCtrl">
     <div>
         <input type="checkbox" ng-model="fldCtrl.showFolders" ng-change="fldCtrl.toggleFolders(fldCtrl.showFolders)"><span>Show All Folders</span>
     </div>
+    <div class="container" >
 
-    <div class="float-left">
+        <div class="child">
 
-        <h3>My Folders</h3>
-
-        <div>
+            <h3>My Folders</h3>
 
             <div>
-                <ul>
-                    <li ng-repeat="folder in fldCtrl.folders">
-                        <input type="checkbox" ng-model="folder.expanded">
-                        <label ng-bind="folder.folderName"></label>
 
-                        <ul ng-show="folder.expanded">
-                            <li ng-repeat="filename in folder.fileNames">
-                                <label ng-bind="filename"></label>
-                            </li>
-                        </ul>
+                <div>
+                    <ul>
+                        <li ng-repeat="folder in fldCtrl.folders">
+                            <input type="checkbox" ng-model="folder.expanded">
+                            <label ng-bind="folder.folderName"></label>
 
-                    </li>
-                </ul>
+                            <ul ng-show="folder.expanded">
+                                <li ng-repeat="filename in folder.fileNames">
+                                    <label ng-bind="filename"></label>
+                                </li>
+                            </ul>
+
+                        </li>
+                    </ul>
+                </div>
+
             </div>
 
         </div>
 
-    </div>
+        <div class="child">
+            <h3>Add Files</h3>
 
-    <div class="float-right">
-        <h3>Add Files</h3>
-
-        <div>
-            <div ng-repeat="folder in fldCtrl.folders">
-                <input type="radio" name="folderSelector" ng-value="folder.folderName" ng-model="fldCtrl.folderChoice">
-                <label ng-bind="folder.folderName"></label>
+            <div>
+                <div ng-repeat="folder in fldCtrl.folders">
+                    <input type="radio" name="folderSelector" ng-value="folder.folderName" ng-model="fldCtrl.folderChoice">
+                    <label ng-bind="folder.folderName"></label>
+                </div>
             </div>
-        </div>
 
-        <div>
-            <label>File Name: </label><input type="text" ng-model="fldCtrl.inputFileName" ng-keyup="fldCtrl.addFilesKeyUp($event)">
-            <button ng-click="fldCtrl.saveFileName(fldCtrl.folderChoice, fldCtrl.inputFileName)">Save</button>
-        </div>
+            <div>
+                <label>File Name: </label><input type="text" ng-model="fldCtrl.inputFileName" ng-keyup="fldCtrl.addFilesKeyUp($event)">
+                <button ng-click="fldCtrl.saveFileName(fldCtrl.folderChoice, fldCtrl.inputFileName)">Save</button>
+            </div>
 
-        <!--<span ng-bind="fldCtrl.folderChoice"></span>-->
+            <!--<span ng-bind="fldCtrl.folderChoice"></span>-->
+
+        </div>
 
     </div>
-
 </div>
+
 
 </body>
 </html>
