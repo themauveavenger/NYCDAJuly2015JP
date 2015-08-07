@@ -20,7 +20,26 @@
     <div>
         <h3>Enter Some Details</h3>
         <div>
-            <label></label><input type="text" ng-model="mctrl.input.name">
+            <label>Name: </label><input type="text" ng-model="mctrl.input.name">
+        </div>
+
+        <div>
+            <label>Age: </label><input type="number" ng-model="mctrl.input.age">
+        </div>
+
+        <h4>Choose Some Music</h4>
+        <div>
+            <div ng-repeat="genre in mctrl.genreList">
+                <input type="radio" name="genreSelect" ng-model="mctrl.inputGenre" ng-value="genre">
+                <label ng-bind="genre.genreName"></label>
+            </div>
+
+            <div>
+                <h5>Hits</h5>
+                <div ng-repeat="song in mctrl.inputGenre.songList">
+                    <input type="checkbox" ng-model="song.isChecked" ng-change="mctrl.addRemoveSong(song)"><label ng-bind="song.name"></label>
+                </div>
+            </div>
         </div>
     </div>
 
