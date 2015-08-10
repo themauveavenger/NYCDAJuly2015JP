@@ -1,0 +1,15 @@
+body {
+    box-sizing: border-box;
+    /*width: auto;*/
+    padding: 20px;
+    font: 1em "Open Sans", sans-serif;
+    /*border: 1px solid #DDD;    */
+}
+
+.borders{
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
