@@ -1,4 +1,93 @@
 <div class="container">
-  <h1>Test</h1>
-  <h2 ng-bind="main.player1.name"></h2>
+    <h1>Homework 2 - Simon</h1>
+
+    <div>
+        <label>Player Name: </label> <span ng-bind="main.player1.name"></span>
+    </div>
+
+    <br>
+
+    <div>
+        <label>Simon Delay (ms): </label><input type="number" ng-model="main.computerDelay">
+        <input type="button" ng-click="main.initGameState()" ng-value="main.buttonText" ng-show="main.showNewGameButton">
+
+        <br>
+        <br>
+
+        <div ng-show="!main.showNewGameButton">
+            <span ng-bind="'Turn: ' + main.activePlayer.name"></span>
+        </div>
+
+    </div>
+
+    <br>
+
+    <!-- this is the board.-->
+    <div class="boardContainer" ng-show="!main.playerLost">
+
+        <div class="simonBox red-box" ng-class="main.redclass"
+             ng-click="main.playerClick(main.SimonColors.red)"
+             ng-mouseenter="main.changeHoverColor(main.SimonColors.red, true)"
+             ng-mouseleave="main.changeHoverColor(main.SimonColors.red, false)">
+
+        </div>
+
+        <div class="simonBox green-box" ng-class="main.greenclass"
+             ng-click="main.playerClick(main.SimonColors.green)"
+             ng-mouseenter="main.changeHoverColor(main.SimonColors.green, true)"
+             ng-mouseleave="main.changeHoverColor(main.SimonColors.green, false)">
+
+        </div>
+
+        <div class="simonBox blue-box" ng-class="main.blueclass"
+             ng-click="main.playerClick(main.SimonColors.blue)"
+             ng-mouseenter="main.changeHoverColor(main.SimonColors.blue, true)"
+             ng-mouseleave="main.changeHoverColor(main.SimonColors.blue, false)">
+
+        </div>
+
+        <div class="simonBox yellow-box" ng-class="main.yellowclass"
+             ng-click="main.playerClick(main.SimonColors.yellow)"
+             ng-mouseenter="main.changeHoverColor(main.SimonColors.yellow, true)"
+             ng-mouseleave="main.changeHoverColor(main.SimonColors.yellow, false)">
+
+        </div>
+
+    </div>
+
+    <div class="movesContainer">
+        <div class="moveBox">
+            <h3>Computer Moves</h3>
+            <ol>
+                <li ng-repeat="simonNumber in main.computerPlayer.sequence track by $index" ng-bind="main.getSimonColor(simonNumber)">
+
+                </li>
+            </ol>
+        </div>
+
+        <div class="moveBox">
+            <h3 ng-bind="main.player1.name + '\'s Moves'"></h3>
+            <ol>
+                <li ng-repeat="playerNumber in main.player1.sequence track by $index" ng-bind="main.getSimonColor(playerNumber)">
+
+                </li>
+            </ol>
+        </div>
+    </div>
+
+
+
+    <div>
+        <h3>Scores</h3>
+
+        <div ng-show="!main.playerLost">
+            <label ng-bind="main.player1.name + '\'s Score: '"></label><span ng-bind="main.player1.score"></span>
+        </div>
+
+        <div ng-show="main.playerLost">
+            <p class="lostText">You Lost! Play again? </p>
+            <button ng-click="main.initGameState()">Play Again</button>
+        </div>
+    </div>
+
 </div>

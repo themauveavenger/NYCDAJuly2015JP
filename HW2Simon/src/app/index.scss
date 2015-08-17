@@ -3,11 +3,124 @@
 // bower:scss
 // endbower
 
+$red-rest: #AA3939;
+$red-click: #D46A6A;
+$red-hover: #801515;
+
+$blue-rest: #2E4172;
+$blue-click: #4F628E;
+$blue-hover: #162955;
+
+$green-rest: #579532;
+$green-click: #80BA5D;
+$green-hover: #356F13;
+
+$yellow-rest: #AAAA39;
+$yellow-click: #D4D46A;
+$yellow-hover: #808015;
+
 body {
-  box-sizing: border-box;
-  padding: 20px;
-  font: 1em "Open Sans", sans-serif;
-  /*border: 1px solid #DDD;    */
+    font: 1em "Open Sans", sans-serif;
+    /*border: 1px solid #DDD;    */
+}
+
+.container {
+    padding: 20px;
+    position: absolute;
+    margin: 0 auto;
+    max-width: 960px;
+}
+
+.movesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+}
+
+.moveBox {
+    width: 196px;
+    padding: 2px;
+}
+
+.boardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 314px;
+}
+
+.simonBox {
+    width: 150px;
+    border: 1px black solid;
+    height: 150px;
+    padding: 2px;
+}
+
+.red-box {
+    border-top-left-radius: 150px;
+}
+
+.red-rest {
+    background: $red-rest;
+}
+
+.red-hover {
+    background: $red-hover;
+}
+
+.red-click {
+    background: $red-click;
+}
+
+.yellow-rest {
+    background: $yellow-rest;
+}
+
+.yellow-hover {
+    background: $yellow-hover;
+}
+
+.yellow-click {
+    background: $yellow-click;
+}
+
+.yellow-box {
+    border-bottom-right-radius: 150px;
+}
+
+.green-rest {
+    background: $green-rest;
+}
+
+.green-hover {
+    background: $green-hover;
+}
+
+.green-click {
+    background: $green-click;
+}
+
+.green-box {
+    border-top-right-radius: 150px;
+}
+
+.blue-rest {
+    background: $blue-rest;
+}
+
+.blue-hover {
+    background: $blue-hover;
+}
+
+.blue-click {
+    background: $blue-click;
+}
+
+.blue-box {
+    border-bottom-left-radius: 150px;
+}
+
+.lostText {
+    color: #c7254e;
 }
 
 /* Do not remove this comments bellow. It's the markers used by gulp-inject to inject
