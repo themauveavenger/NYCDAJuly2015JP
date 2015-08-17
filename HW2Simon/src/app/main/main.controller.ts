@@ -60,10 +60,10 @@ module hw2Simon {
             this.clickColorChange(colorToChange);
         }
 
-        playerClick(colorToChange:number) {
+        playerClick(colorToChange:number):void {
             var self:MainController = this;
 
-            if (!self.computerIsPlaying) {
+            if (!self.computerIsPlaying && !self.showNewGameButton) {
                 self.clickColorChange(colorToChange);
 
                 self.player1.sequence.push(colorToChange);
@@ -90,7 +90,7 @@ module hw2Simon {
             }
         }
 
-        clickColorChange(colorToChange:number) {
+        clickColorChange(colorToChange:number):void {
             var self:MainController = this;
 
             // check so user can't issue another click if one is already in progress.
@@ -163,7 +163,7 @@ module hw2Simon {
 
         }
 
-        initGameState() {
+        initGameState():void {
             var self:MainController = this;
 
             self.computerIsPlaying = false;
@@ -173,11 +173,12 @@ module hw2Simon {
             self.player1.score = 0;
             self.computerPlayer.sequence = [];
             self.playerLost = false;
+            self.showNewGameButton = false;
 
             self.beginRound();
         }
 
-        beginRound() {
+        beginRound():void {
             var self:MainController = this;
 
             var timeout:number = 0;
@@ -186,7 +187,6 @@ module hw2Simon {
                 timeout = 2000;
             }
 
-            self.showNewGameButton = false;
             self.computerIsPlaying = true;
             self.activePlayer = self.computerPlayer;
 

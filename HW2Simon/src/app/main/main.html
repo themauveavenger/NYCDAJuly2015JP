@@ -85,8 +85,15 @@
         </div>
 
         <div ng-show="main.playerLost">
-            <p class="lostText">You Lost! Play again? </p>
-            <button ng-click="main.initGameState()">Play Again</button>
+            <h4 class="lostText">You Lost! Play again? </h4>
+            <div ng-bind="'Your Score: ' + main.player1.score"></div>
+
+            <br>
+
+            <div>
+                <button ng-click="main.initGameState()">Play Again</button>
+            </div>
+
         </div>
     </div>
 
